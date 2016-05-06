@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.mukesh.countrypicker.fragments.CountryPicker;
 import com.mukesh.countrypicker.interfaces.CountryPickerListener;
+import com.mukesh.countrypicker.models.Country;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mCountryPicker.show(getSupportFragmentManager(), "COUNTRY_PICKER");
       }
     });
+    getUserCountryInfo();
   }
 
   private void initialize() {
@@ -48,5 +50,13 @@ public class MainActivity extends AppCompatActivity {
     mPickCountryButton = (Button) findViewById(R.id.country_picker_button);
     mCountryFlagImageView = (ImageView) findViewById(R.id.selected_country_flag_image_view);
     mCountryPicker = CountryPicker.newInstance("Select Country");
+  }
+
+  private void getUserCountryInfo() {
+    Country country = mCountryPicker.getUserCountryInfo(this);
+    mCountryFlagImageView.setImageResource(country.getFlag());
+    mCountryDialCodeTextView.setText(country.getDialCode());
+    mCountryIsoCodeTextView.setText(country.getCode());
+    mCountryNameTextView.setText(country.getName());
   }
 }
