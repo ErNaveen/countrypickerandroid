@@ -9,7 +9,7 @@ CountryPicker is a simple library that can be show a country picker. See the exa
 Integrating the project is simple a refined all you need to do is add this to your app level gradle file
 
 ```java
-compile 'com.mukesh:countrypicker:1.1.2'
+compile 'com.mukesh:countrypicker:1.1.3'
 ```
 
 Once the project has been added to gradle the user can implement this with easy.
